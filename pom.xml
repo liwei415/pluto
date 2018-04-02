@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>xyz.inux.pluto</groupId>
+    <artifactId>pluto-parent</artifactId>
+    <packaging>pom</packaging>
+    <version>1.0-SNAPSHOT</version>
+    <name>pluto-parent</name>
+
+    <modules>
+        <module>pluto-common</module>
+        <module>pluto-domain</module>
+        <module>pluto-service</module>
+        <module>pluto-timer</module>
+        <module>pluto-web</module>
+    </modules>
+
+    <properties>
+        <skipTests>true</skipTests>
+        <env>dev</env>
+
+        <java.version>1.8</java.version>
+
+        <!-- 定义版本号 -->
+        <pluto.version>1.0.0.20171126</pluto.version>
+        <falcon.version>1.0.0.20171126</falcon.version>
+
+        <!-- spring platform -->
+        <spring.version>4.3.8.RELEASE</spring.version>
+        <spring.boot.version>1.5.6.RELEASE</spring.boot.version>
+        <spring.io.version>Brussels-SR2</spring.io.version>
+        <spring.cloud.version>Dalston.RELEASE</spring.cloud.version>
+
+        <!-- netflix hystrix -->
+        <spring.netflix.version>1.3.0.RELEASE</spring.netflix.version>
+        <netflix.hystrix.version>1.5.11</netflix.hystrix.version>
+        <netflix.feign.version>9.5.0</netflix.feign.version>
+
+        <!-- mybatis -->
+        <mybatis.spring.boot.starter.version>1.3.0</mybatis.spring.boot.starter.version>
+        <mybatis.spring.version>1.3.1</mybatis.spring.version>
+        <mybatis.version>3.4.4</mybatis.version>
+
+        <!-- fastjson -->
+        <fastjson.version>1.2.39</fastjson.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- core jars -->
+            <!--<dependency>-->
+                <!--<groupId>com.qianfan123.sailing.falcon</groupId>-->
+                <!--<artifactId>falcon-core</artifactId>-->
+                <!--<version>${falcon.version}</version>-->
+            <!--</dependency>-->
+            <dependency>
+                <groupId>xyz.inux.pluto</groupId>
+                <artifactId>pluto-common</artifactId>
+                <version>${pluto.version}</version>
+            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>xyz.inux.pluto</groupId>-->
+                <!--<artifactId>pluto-service</artifactId>-->
+                <!--<version>${pluto.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>xyz.inux.pluto</groupId>-->
+                <!--<artifactId>pluto-domain</artifactId>-->
+                <!--<version>${pluto.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>xyz.inux.pluto</groupId>-->
+                <!--<artifactId>pluto-web</artifactId>-->
+                <!--<version>${pluto.version}</version>-->
+            <!--</dependency>-->
+
+            <!-- SpringFramework把需要升级版本的组件放到前面 -->
+            <!-- spring -->
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring boot -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring io -->
+            <!--<dependency>-->
+                <!--<groupId>io.spring.platform</groupId>-->
+                <!--<artifactId>platform-bom</artifactId>-->
+                <!--<version>${spring.io.version}</version>-->
+                <!--<type>pom</type>-->
+                <!--<scope>import</scope>-->
+            <!--</dependency>-->
+            <!-- spring cloud netflix -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-netflix</artifactId>
+                <version>${spring.netflix.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- spring cloud -->
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <!-- Spring Boot Admin,如果服务未启用注册中心,请在应用中启用此配置 -->
+            <!--
+            <dependency>
+   				<groupId>de.codecentric</groupId>
+   				<artifactId>spring-boot-admin-starter-client</artifactId>
+   				<version>1.5.5</version>
+			</dependency>
+			-->
+
+            <!-- fastjson -->
+            <!--<dependency>-->
+                <!--<groupId>com.alibaba</groupId>-->
+                <!--<artifactId>fastjson</artifactId>-->
+                <!--<version>${fastjson.version}</version>-->
+            <!--</dependency>-->
+
+            <!-- mybatis -->
+            <!--<dependency>-->
+                <!--<groupId>org.mybatis.spring.boot</groupId>-->
+                <!--<artifactId>mybatis-spring-boot-starter</artifactId>-->
+                <!--<version>${mybatis.spring.boot.starter.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.mybatis</groupId>-->
+                <!--<artifactId>mybatis-spring</artifactId>-->
+                <!--<version>${mybatis.spring.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>org.mybatis</groupId>-->
+                <!--<artifactId>mybatis</artifactId>-->
+                <!--<version>${mybatis.version}</version>-->
+            <!--</dependency>-->
+
+            <!-- hystrix -->
+            <!--<dependency>-->
+                <!--<groupId>com.netflix.hystrix</groupId>-->
+                <!--<artifactId>hystrix-core</artifactId>-->
+                <!--<version>${netflix.hystrix.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.netflix.hystrix</groupId>-->
+                <!--<artifactId>hystrix-javanica</artifactId>-->
+                <!--<version>${netflix.hystrix.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.netflix.hystrix</groupId>-->
+                <!--<artifactId>hystrix-metrics-event-stream</artifactId>-->
+                <!--<version>${netflix.hystrix.version}</version>-->
+            <!--</dependency>-->
+
+            <!-- Feign -->
+            <!--<dependency>-->
+                <!--<groupId>io.github.openfeign</groupId>-->
+                <!--<artifactId>feign-core</artifactId>-->
+                <!--<version>${netflix.feign.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>io.github.openfeign</groupId>-->
+                <!--<artifactId>feign-slf4j</artifactId>-->
+                <!--<version>${netflix.feign.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>io.github.openfeign</groupId>-->
+                <!--<artifactId>feign-hystrix</artifactId>-->
+                <!--<version>${netflix.feign.version}</version>-->
+            <!--</dependency>-->
+            <!--<dependency>-->
+                <!--<groupId>com.netflix.feign</groupId>-->
+                <!--<artifactId>feign-httpclient</artifactId>-->
+                <!--<version>8.18.0</version>-->
+            <!--</dependency>-->
+
+        </dependencies>
+    </dependencyManagement>
+
+</project>
