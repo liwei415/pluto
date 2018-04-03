@@ -1,6 +1,6 @@
 package xyz.inux.pluto.web.vo.sample;
 
-public class PostOut {
+public class PostOutVo {
 
     private String words;
 

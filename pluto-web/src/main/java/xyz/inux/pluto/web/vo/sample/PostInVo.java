@@ -1,7 +1,10 @@
 package xyz.inux.pluto.web.vo.sample;
 
-public class GetOut {
+import javax.validation.constraints.Size;
 
+public class PostInVo {
+
+    @Size(min = 1, max = 8)
     private String words;
 
     public String getWords() {

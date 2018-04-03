@@ -1,5 +1,6 @@
 package xyz.inux.pluto.web.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,62 +8,80 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import xyz.inux.pluto.common.enums.ResultEnum;
+import xyz.inux.pluto.service.SampleService;
+import xyz.inux.pluto.service.dto.sample.RedisInDto;
+import xyz.inux.pluto.service.dto.sample.RedisOutDto;
 import xyz.inux.pluto.web.support.Result;
-import xyz.inux.pluto.web.vo.sample.GetIn;
-import xyz.inux.pluto.web.vo.sample.GetOut;
-import xyz.inux.pluto.web.vo.sample.PostIn;
-import xyz.inux.pluto.web.vo.sample.PostOut;
+import xyz.inux.pluto.web.vo.sample.*;
 
 @RestController
 @RequestMapping(value = "/sample")
 public class SampleController {
 
+    @Autowired
+    private SampleService sampleService;
+
     // url 带参数
     @RequestMapping(value = {"/get/echo/{words}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Result<GetOut> sGet(@PathVariable("words") String wordsIn) {
+    public Result<GetOutVo> sGet(@PathVariable("words") String wordsIn) {
 
         // 1 获得入参
-        GetIn getIn = new GetIn();
-        getIn.setWords(wordsIn);
+        GetInVo getInVo = new GetInVo();
+        getInVo.setWords(wordsIn);
 
         // 2 业务处理
-        String wordsOut = getIn.getWords() + " get !";
+        String wordsOut = getInVo.getWords() + " get !";
 
         // 3 组装出参
-        GetOut getOut = new GetOut();
-        getOut.setWords(wordsOut);
+        GetOutVo getOutVo = new GetOutVo();
+        getOutVo.setWords(wordsOut);
 
         // 4 return
         ResultEnum resultEnum = ResultEnum.SUCCESS;
-        return new Result<GetOut>(resultEnum.getCode(), resultEnum.getDesc(), getOut);
+        return new Result<GetOutVo>(resultEnum.getCode(), resultEnum.getDesc(), getOutVo);
     }
 
     // form 提交
     @RequestMapping(value = {"/post/echo"}, method = {RequestMethod.POST}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public Result<PostOut> sPost(PostIn postIn) {
+    public Result<PostOutVo> sPost(PostInVo postInVo) {
 
         // 1 获得入参
 
         // 2 业务处理
-        String wordsOut = postIn.getWords() + " post !";
+        String wordsOut = postInVo.getWords() + " post !";
 
         // 3 组装出参
-        PostOut postOut = new PostOut();
-        postOut.setWords(wordsOut);
+        PostOutVo postOutVo = new PostOutVo();
+        postOutVo.setWords(wordsOut);
 
         // 4 return
         ResultEnum resultEnum = ResultEnum.SUCCESS;
-        return new Result<PostOut>(resultEnum.getCode(), resultEnum.getDesc(), postOut);
+        return new Result<PostOutVo>(resultEnum.getCode(), resultEnum.getDesc(), postOutVo);
+    }
+
+    @RequestMapping(value = {"/redis/{key}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Result<RedisOutVo> sRedis(@PathVariable("key") String key) {
+        // 1 获得入参
+        RedisInVo redisInVo = new RedisInVo();
+        redisInVo.setKey(key);
+
+        // 2 业务处理
+        RedisInDto redisInDto = new RedisInDto();
+        redisInDto.setKey(redisInVo.getKey());
+        RedisOutDto redisOutDto = sampleService.sRedis(redisInDto);
+
+        // 3 组装出参
+        RedisOutVo redisOutVo = new RedisOutVo();
+        redisOutVo.setValue(redisOutDto.getValue());
+
+        // 4 return
+        ResultEnum resultEnum = ResultEnum.SUCCESS;
+        return new Result<RedisOutVo>(resultEnum.getCode(), resultEnum.getDesc(), redisOutVo);
     }
 
     @RequestMapping(value = {"/db/{id}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
     public String sDb(@PathVariable("id") String id) {
         return "sDb: " + id;
-    }
-
-    @RequestMapping(value = {"/redis/{key}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String sRedis(@PathVariable("key") String key) {
-        return "sRedis: " + key;
     }
 
 }

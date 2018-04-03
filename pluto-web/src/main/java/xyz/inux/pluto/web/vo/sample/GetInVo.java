@@ -1,6 +1,6 @@
 package xyz.inux.pluto.web.vo.sample;
 
-public class GetIn {
+public class GetInVo {
 
     private String words;
 
