@@ -3,9 +3,9 @@ package xyz.inux.pluto.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import xyz.inux.pluto.domain.repository.SampleRepository;
-import xyz.inux.pluto.domain.repository.bo.sample.RedisInBo;
-import xyz.inux.pluto.domain.repository.bo.sample.RedisOutBo;
+import xyz.inux.pluto.domain.SampleDomain;
+import xyz.inux.pluto.domain.bo.sample.RedisInBo;
+import xyz.inux.pluto.domain.bo.sample.RedisOutBo;
 import xyz.inux.pluto.service.SampleService;
 import xyz.inux.pluto.service.dto.sample.RedisInDto;
 import xyz.inux.pluto.service.dto.sample.RedisOutDto;
@@ -14,7 +14,7 @@ import xyz.inux.pluto.service.dto.sample.RedisOutDto;
 public class SampleServiceImpl implements SampleService {
 
     @Autowired
-    private SampleRepository sampleRepository;
+    private SampleDomain sampleDomain;
 
     public RedisOutDto sRedis(RedisInDto redisInDto) {
 
@@ -23,7 +23,7 @@ public class SampleServiceImpl implements SampleService {
         redisInBo.setKey(redisInDto.getKey());
 
         // 2 调用repo
-        RedisOutBo redisOutBo = sampleRepository.sRedis(redisInBo);
+        RedisOutBo redisOutBo = sampleDomain.sRedis(redisInBo);
 
         // 3 返回处理
         RedisOutDto redisOutDto = new RedisOutDto();

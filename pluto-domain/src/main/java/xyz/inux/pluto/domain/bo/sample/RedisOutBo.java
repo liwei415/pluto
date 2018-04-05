@@ -1,4 +1,4 @@
-package xyz.inux.pluto.domain.repository.bo.sample;
+package xyz.inux.pluto.domain.bo.sample;
 
 public class RedisOutBo {
 
