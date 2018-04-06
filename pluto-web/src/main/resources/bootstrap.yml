@@ -64,8 +64,8 @@ server:
 #    registryFetchIntervalSeconds: 5
 
 logging: 
-  #path: ${LOGGING.PATH:/var/wd/xxxxxx_logs/}
-  path: ${LOGGING_PATH}
+  path: /var/wd/pluto_logs/
+#  path: ${LOGGING_PATH}
   register-shutdown-hook: false
 
 # ACTUATOR PROPERTIES

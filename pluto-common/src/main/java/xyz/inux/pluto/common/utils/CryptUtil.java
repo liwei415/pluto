@@ -419,7 +419,7 @@ public class CryptUtil {
 	public static void testAESCSC() throws Exception {
         SecureRandom rnd = new SecureRandom();
 
-        String text = "Hello, my dear! ... " + System.getProperty("user.home");
+        String text = "Hello, shit! ... " + System.getProperty("user.home");
         byte[] textData = text.getBytes();
 
         IvParameterSpec iv = new IvParameterSpec(rnd.generateSeed(16));

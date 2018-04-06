@@ -7,7 +7,7 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Service;
 import xyz.inux.pluto.model.pojo.po.UsersPo;
 
-@Service(value = "UserDao")
+@Service(value = "UsersDao")
 @Mapper
 public interface UsersDao {
 

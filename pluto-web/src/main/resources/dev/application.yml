@@ -1,6 +1,6 @@
 spring: 
   application: 
-    name: ${TENANT_GROUP:vanke-scpg-}pluto
+    name: ${TENANT_GROUP:vanke-scpg-pluto}
   http: 
     multipart: 
       enabled: true
