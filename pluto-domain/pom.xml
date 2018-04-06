@@ -15,14 +15,18 @@
 
     <dependencies>
 
-        <dependency>
-            <groupId>com.qianfan123.sailing.falcon</groupId>
-            <artifactId>falcon-core</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>com.qianfan123.sailing.falcon</groupId>-->
+            <!--<artifactId>falcon-core</artifactId>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>xyz.inux.pluto</groupId>
             <artifactId>pluto-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>xyz.inux.pluto</groupId>
+            <artifactId>pluto-model</artifactId>
         </dependency>
 
         <dependency>

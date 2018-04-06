@@ -4,11 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import xyz.inux.pluto.domain.SampleDomain;
-import xyz.inux.pluto.domain.bo.sample.RedisInBo;
-import xyz.inux.pluto.domain.bo.sample.RedisOutBo;
+import xyz.inux.pluto.model.pojo.bo.sample.RedisInBo;
+import xyz.inux.pluto.model.pojo.bo.sample.RedisOutBo;
 import xyz.inux.pluto.service.SampleService;
-import xyz.inux.pluto.service.dto.sample.RedisInDto;
-import xyz.inux.pluto.service.dto.sample.RedisOutDto;
+import xyz.inux.pluto.model.pojo.dto.sample.RedisInDto;
+import xyz.inux.pluto.model.pojo.dto.sample.RedisOutDto;
 
 @Service("SampleService")
 public class SampleServiceImpl implements SampleService {

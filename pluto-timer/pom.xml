@@ -24,6 +24,10 @@
         </dependency>
         <dependency>
             <groupId>xyz.inux.pluto</groupId>
+            <artifactId>pluto-model</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>xyz.inux.pluto</groupId>
             <artifactId>pluto-service</artifactId>
         </dependency>
 

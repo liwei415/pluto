@@ -12,6 +12,7 @@
     <modules>
         <module>pluto-common</module>
         <module>pluto-domain</module>
+        <module>pluto-model</module>
         <module>pluto-service</module>
         <module>pluto-timer</module>
         <module>pluto-web</module>
@@ -66,6 +67,11 @@
             <dependency>
                 <groupId>xyz.inux.pluto</groupId>
                 <artifactId>pluto-domain</artifactId>
+                <version>${pluto.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>xyz.inux.pluto</groupId>
+                <artifactId>pluto-model</artifactId>
                 <version>${pluto.version}</version>
             </dependency>
             <dependency>

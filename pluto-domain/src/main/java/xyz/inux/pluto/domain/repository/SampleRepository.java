@@ -2,8 +2,8 @@ package xyz.inux.pluto.domain.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xyz.inux.pluto.domain.dao.UsersDao;
-import xyz.inux.pluto.domain.dao.po.UsersPo;
+import xyz.inux.pluto.domain.dao.mysql.UsersDao;
+import xyz.inux.pluto.model.pojo.po.UsersPo;
 
 @Service("SampleRepository")
 public class SampleRepository {

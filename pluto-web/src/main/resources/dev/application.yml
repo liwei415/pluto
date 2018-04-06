@@ -100,15 +100,15 @@ datasource:
   # Master数据源配置
   master:
     driverClass: com.mysql.jdbc.Driver
-    jdbcUrl: jdbc:mysql://${C3P0.HOST:localhost}:${C3P0.PORT:3306}/${C3P0.DATABASE:d}?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+    jdbcUrl: jdbc:mysql://${C3P0.HOST:localhost}:${C3P0.PORT:3306}/${C3P0.DATABASE:d}?useUnicode=true&characterEncoding=utf8&useSSL=false&autoReconnect=true&failOverReadOnly=false
     user: ${C3P0.USER:root}
     password: ${C3P0.PASSWORD:}
-    minPoolSize: ${C3P0.MINPOOLSIZE:10}
-    maxPoolSize: ${C3P0.MAXPOOLSIZE:4}
+    minPoolSize: ${C3P0.MINPOOLSIZE:16}
+    maxPoolSize: ${C3P0.MAXPOOLSIZE:32}
     maxIdleTime: 1800000
     acquireIncrement: ${C3P0.ACQUIREINCREMENT:2}
     maxStatements: 0
-    initialPoolSize: ${C3P0.INITIALPOOLSIZE:4}
+    initialPoolSize: ${C3P0.INITIALPOOLSIZE:16}
     idleConnectionTestPeriod: 60
     acquireRetryAttempts: 5
     acquireRetryDelay: 1000
@@ -119,7 +119,7 @@ datasource:
 
 # mybatis配置
 mybatis:
-  config_location: bean/mybatis/mybatis_config.xml
+  config_location: /bean/mybatis/mybatis_config.xml
   mapper_locations: /bean/mybatis/mapping/*.xml
 #  type-aliases-package: com.wanda.hawk.domain.dao.po
 #  # type-handlers-package: com.example.typehandler

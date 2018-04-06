@@ -2,8 +2,8 @@ package xyz.inux.pluto.domain;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import xyz.inux.pluto.domain.bo.sample.RedisInBo;
-import xyz.inux.pluto.domain.bo.sample.RedisOutBo;
+import xyz.inux.pluto.model.pojo.bo.sample.RedisInBo;
+import xyz.inux.pluto.model.pojo.bo.sample.RedisOutBo;
 import xyz.inux.pluto.domain.repository.RedisRepository;
 import xyz.inux.pluto.domain.repository.SampleRepository;
 

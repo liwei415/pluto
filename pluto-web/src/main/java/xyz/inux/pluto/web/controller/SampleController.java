@@ -7,12 +7,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import xyz.inux.pluto.common.enums.ResultEnum;
+import xyz.inux.pluto.model.enums.ResultEnum;
 import xyz.inux.pluto.service.SampleService;
-import xyz.inux.pluto.service.dto.sample.RedisInDto;
-import xyz.inux.pluto.service.dto.sample.RedisOutDto;
+import xyz.inux.pluto.model.pojo.dto.sample.RedisInDto;
+import xyz.inux.pluto.model.pojo.dto.sample.RedisOutDto;
 import xyz.inux.pluto.web.support.Result;
-import xyz.inux.pluto.web.vo.sample.*;
+import xyz.inux.pluto.model.pojo.vo.sample.*;
 
 @RestController
 @RequestMapping(value = "/sample")
