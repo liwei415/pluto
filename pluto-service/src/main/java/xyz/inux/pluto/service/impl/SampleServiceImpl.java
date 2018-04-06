@@ -32,4 +32,7 @@ public class SampleServiceImpl implements SampleService {
         return redisOutDto;
     }
 
+    public String sDb(String id) {
+        return sampleDomain.sDb(id + "hhhh");
+    }
 }

@@ -53,11 +53,11 @@
     <dependencyManagement>
         <dependencies>
             <!-- core jars -->
-            <!--<dependency>-->
-                <!--<groupId>com.qianfan123.sailing.falcon</groupId>-->
-                <!--<artifactId>falcon-core</artifactId>-->
-                <!--<version>${falcon.version}</version>-->
-            <!--</dependency>-->
+            <dependency>
+                <groupId>com.qianfan123.sailing.falcon</groupId>
+                <artifactId>falcon-core</artifactId>
+                <version>${falcon.version}</version>
+            </dependency>
             <dependency>
                 <groupId>xyz.inux.pluto</groupId>
                 <artifactId>pluto-common</artifactId>

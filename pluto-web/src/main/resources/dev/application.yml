@@ -95,35 +95,35 @@ redis:
     # 每次逐出检查时 逐出的最大数目
     numTestsPerEvictionRun: 3
 
-## 数据源配置
-#datasource:
-#  # Master数据源配置
-#  master:
-#    driverClass: com.mysql.jdbc.Driver
-#    jdbcUrl: jdbc:mysql://${C3P0.HOST:localhost}:${C3P0.PORT:3306}/${C3P0.DATABASE:mydb}?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
-#    user: ${C3P0.USER:myname}
-#    password: ${C3P0.PASSWORD:mypassword}
-#    minPoolSize: ${C3P0.MINPOOLSIZE:10}
-#    maxPoolSize: ${C3P0.MAXPOOLSIZE:4}
-#    maxIdleTime: 1800000
-#    acquireIncrement: ${C3P0.ACQUIREINCREMENT:2}
-#    maxStatements: 0
-#    initialPoolSize: ${C3P0.INITIALPOOLSIZE:4}
-#    idleConnectionTestPeriod: 60
-#    acquireRetryAttempts: 5
-#    acquireRetryDelay: 1000
-#    breakAfterAcquireFailure: false
-#    testConnectionOnCheckin: true
-#    testConnectionOnCheckout: false
-#    preferredTestQuery: SELECT 1 FROM DUAL
-#
-## mybatis配置
-#mybatis:
-#  config_location: bean/mybatis/mybatis_config.xml
-#  mapper_locations: /bean/mybatis/mapping/*.xml
+# 数据源配置
+datasource:
+  # Master数据源配置
+  master:
+    driverClass: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://${C3P0.HOST:localhost}:${C3P0.PORT:3306}/${C3P0.DATABASE:d}?useUnicode=true&characterEncoding=utf8&autoReconnect=true&failOverReadOnly=false
+    user: ${C3P0.USER:root}
+    password: ${C3P0.PASSWORD:}
+    minPoolSize: ${C3P0.MINPOOLSIZE:10}
+    maxPoolSize: ${C3P0.MAXPOOLSIZE:4}
+    maxIdleTime: 1800000
+    acquireIncrement: ${C3P0.ACQUIREINCREMENT:2}
+    maxStatements: 0
+    initialPoolSize: ${C3P0.INITIALPOOLSIZE:4}
+    idleConnectionTestPeriod: 60
+    acquireRetryAttempts: 5
+    acquireRetryDelay: 1000
+    breakAfterAcquireFailure: false
+    testConnectionOnCheckin: true
+    testConnectionOnCheckout: false
+    preferredTestQuery: SELECT 1 FROM DUAL
+
+# mybatis配置
+mybatis:
+  config_location: bean/mybatis/mybatis_config.xml
+  mapper_locations: /bean/mybatis/mapping/*.xml
 #  type-aliases-package: com.wanda.hawk.domain.dao.po
 #  # type-handlers-package: com.example.typehandler
-#  executorType: REUSE
+  executorType: REUSE
 
 ## Perform Framework
 #performframework:

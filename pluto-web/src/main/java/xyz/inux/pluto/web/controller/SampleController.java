@@ -38,7 +38,7 @@ public class SampleController {
 
         // 4 return
         ResultEnum resultEnum = ResultEnum.SUCCESS;
-        return new Result<GetOutVo>(resultEnum.getCode(), resultEnum.getDesc(), getOutVo);
+        return new Result<>(resultEnum.getCode(), resultEnum.getDesc(), getOutVo);
     }
 
     // form 提交
@@ -56,7 +56,7 @@ public class SampleController {
 
         // 4 return
         ResultEnum resultEnum = ResultEnum.SUCCESS;
-        return new Result<PostOutVo>(resultEnum.getCode(), resultEnum.getDesc(), postOutVo);
+        return new Result<>(resultEnum.getCode(), resultEnum.getDesc(), postOutVo);
     }
 
     @RequestMapping(value = {"/redis/{key}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -76,12 +76,17 @@ public class SampleController {
 
         // 4 return
         ResultEnum resultEnum = ResultEnum.SUCCESS;
-        return new Result<RedisOutVo>(resultEnum.getCode(), resultEnum.getDesc(), redisOutVo);
+        return new Result<>(resultEnum.getCode(), resultEnum.getDesc(), redisOutVo);
     }
 
     @RequestMapping(value = {"/db/{id}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String sDb(@PathVariable("id") String id) {
-        return "sDb: " + id;
+    public Result<DbOutVo> sDb(@PathVariable("id") String id) {
+
+        DbOutVo dbOutVo = new DbOutVo();
+        dbOutVo.setData(sampleService.sDb(id));
+
+        ResultEnum resultEnum = ResultEnum.SUCCESS;
+        return new Result<>(resultEnum.getCode(), resultEnum.getDesc(), dbOutVo);
     }
 
 }

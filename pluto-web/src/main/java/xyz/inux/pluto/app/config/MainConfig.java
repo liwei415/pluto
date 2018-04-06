@@ -9,13 +9,14 @@ import org.springframework.core.Ordered;
 import org.springframework.stereotype.Controller;
 
 import xyz.inux.pluto.domain.config.RedisCacheConfig;
+import xyz.inux.pluto.domain.config.DatasourceConfig;
 
 @AutoConfigureOrder(Ordered.HIGHEST_PRECEDENCE)
 @Configuration
 @Import(value={
 //        PerformFramework.class,
 //        DataSourceConfiguration.class,
-//        DatasourceConfig.class,
+        DatasourceConfig.class,
         RedisCacheConfig.class,
 //        WebMvcConfiguration.class
 })
