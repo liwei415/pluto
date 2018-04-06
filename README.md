@@ -13,9 +13,9 @@ TODO:
 * pom.xml打包配置（build）
 * MQ客户端集成
 * ES客户端集成
-* http客户端集成
+* http客户端集成 --- DONE
 * AOP示例（日志AOP）
 * 日期处理 --- 使用公共包?
 * 定时任务示例 --- DONE
-* 常驻消费线程示例
+* 常驻消费线程示例 --- (多开放service.handler/单开放timer.handler)
 * 类属性拷贝选型----手动set（效率高）DONE
