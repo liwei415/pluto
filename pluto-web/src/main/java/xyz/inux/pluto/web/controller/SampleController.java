@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import xyz.inux.pluto.domain.SampleDomain;
 import xyz.inux.pluto.model.enums.ResultEnum;
 import xyz.inux.pluto.service.SampleService;
 import xyz.inux.pluto.model.pojo.dto.sample.RedisInDto;
@@ -20,6 +21,9 @@ public class SampleController {
 
     @Autowired
     private SampleService sampleService;
+
+    @Autowired
+    private SampleDomain sampleDomain;
 
     // url 带参数
     @RequestMapping(value = {"/get/echo/{words}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
@@ -84,6 +88,16 @@ public class SampleController {
 
         DbOutVo dbOutVo = new DbOutVo();
         dbOutVo.setData(sampleService.sDb(id));
+
+        ResultEnum resultEnum = ResultEnum.SUCCESS;
+        return new Result<>(resultEnum.getCode(), resultEnum.getDesc(), dbOutVo);
+    }
+
+    @RequestMapping(value = {"/dbTrans/{id}"}, method = {RequestMethod.GET}, produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Result<DbOutVo> sDbTrans(@PathVariable("id") String id) {
+
+        DbOutVo dbOutVo = new DbOutVo();
+        dbOutVo.setData(sampleDomain.sDbTrans(id));
 
         ResultEnum resultEnum = ResultEnum.SUCCESS;
         return new Result<>(resultEnum.getCode(), resultEnum.getDesc(), dbOutVo);

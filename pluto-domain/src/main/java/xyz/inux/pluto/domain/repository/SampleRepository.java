@@ -16,4 +16,16 @@ public class SampleRepository {
 //        return ClazzConverter.converterClass(demoPo, DemoModel.class);
         return usersPo.getuMobile();
     }
+
+    public String editUserById(String id) {
+        usersDao.editById(id);
+
+        if (1 == 1) {
+            throw new NullPointerException();
+        }
+
+        return "OK";
+    }
+
+
 }

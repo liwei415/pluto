@@ -8,10 +8,12 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 //import org.springframework.cloud.netflix.feign.EnableFeignClients;
 //import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.scheduling.annotation.EnableAsync;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @SpringBootApplication(scanBasePackages = {"xyz.inux.pluto"})
 @EnableAsync
+@EnableTransactionManagement
 //@EnableHystrix
 //@EnableEurekaClient
 //@EnableFeignClients(basePackages={"com.qianfan123.sailing.xxxxxx.domain.ext"})

@@ -9,10 +9,12 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 //import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 
 @SpringBootApplication(scanBasePackages = {"xyz.inux.pluto.timer"})
 @EnableAsync
+@EnableTransactionManagement
 @EnableScheduling
 //@EnableHystrix
 //@EnableEurekaClient

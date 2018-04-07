@@ -7,7 +7,7 @@ TODO:
 * MOCK规范 ---- DONE
 * 入参校验
 * redis集成 ---- DONE
-* Mybatis集成 ---- DONE（差事务模版）
+* Mybatis集成 ---- DONE
 * Log4j集成 ---- DONE
 * 配置文件环境分离 ---- DONE
 * pom.xml打包配置（build） ---- DONE
