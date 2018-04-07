@@ -6,12 +6,13 @@ import org.springframework.stereotype.Service;
 import xyz.inux.pluto.domain.SampleDomain;
 import xyz.inux.pluto.model.pojo.bo.sample.RedisInBo;
 import xyz.inux.pluto.model.pojo.bo.sample.RedisOutBo;
+import xyz.inux.pluto.service.AbstractService;
 import xyz.inux.pluto.service.SampleService;
 import xyz.inux.pluto.model.pojo.dto.sample.RedisInDto;
 import xyz.inux.pluto.model.pojo.dto.sample.RedisOutDto;
 
 @Service("SampleService")
-public class SampleServiceImpl implements SampleService {
+public class SampleServiceImpl extends AbstractService implements SampleService {
 
     @Autowired
     private SampleDomain sampleDomain;

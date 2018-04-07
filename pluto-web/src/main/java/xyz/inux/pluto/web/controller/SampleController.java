@@ -17,7 +17,7 @@ import xyz.inux.pluto.model.pojo.vo.sample.*;
 
 @RestController
 @RequestMapping(value = "/sample")
-public class SampleController {
+public class SampleController extends BaseController {
 
     @Autowired
     private SampleService sampleService;
