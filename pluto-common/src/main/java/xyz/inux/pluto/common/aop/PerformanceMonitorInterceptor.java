@@ -8,19 +8,20 @@ import org.slf4j.LoggerFactory;
 public class PerformanceMonitorInterceptor implements MethodInterceptor {
 	private final static Logger logger = LoggerFactory.getLogger(PerformanceMonitorInterceptor.class);
 
-	private int threshold = 100; // 以毫秒表示的阈值
+	// 以毫秒表示的阈值
+	private int threshold = 100;
 
 	public PerformanceMonitorInterceptor() {
 		super();
 	}
-	
+
 	/**
 	 * 判断方法调用的时间是否超过阈值，如果是，则打印性能日志.
 	 */
 	@Override
 	public Object invoke(MethodInvocation invocation) throws Throwable {
 		String name = invocation.getMethod().getDeclaringClass().getName() + "." + invocation.getMethod().getName();
-		
+
 		Profiler.start("Invoking method: " + name);
 
 		try {
@@ -37,9 +38,9 @@ public class PerformanceMonitorInterceptor implements MethodInterceptor {
 					StringBuilder builder = new StringBuilder();
 					builder.append(" ").append(name); // 方法
 					builder.append(" ").append(threshold).append(" (ms)"); // 阈值
-																			// (ms)
+					// (ms)
 					builder.append(" ").append(elapseTime).append(" (ms)\r\n"); // 实际执行时间
-																				// (ms)
+					// (ms)
 					builder.append(Profiler.dump());
 					logger.info(builder.toString());
 				} else {
@@ -49,7 +50,7 @@ public class PerformanceMonitorInterceptor implements MethodInterceptor {
 						builder.append(" ").append(elapseTime).append(" (ms)\r\n"); // 实际执行时间为 (ms)
 					}
 				}
-				
+
 				Profiler.reset();
 			}
 		}

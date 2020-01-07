@@ -25,10 +25,12 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(value = Exception.class)
     @ResponseBody
     public Result<Object> defaultErrorHandler(final HttpServletRequest req, HttpServletResponse resp, final Exception e) throws Exception {
-		/*  使用response返回    */
-        resp.setStatus(HttpStatus.OK.value()); //设置状态码
-        resp.setContentType(MediaType.APPLICATION_JSON_VALUE); //设置ContentType
-        resp.setCharacterEncoding("UTF-8"); //避免乱码
+        //设置状态码
+        resp.setStatus(HttpStatus.OK.value());
+        //设置ContentType
+        resp.setContentType(MediaType.APPLICATION_JSON_VALUE);
+        //避免乱码
+        resp.setCharacterEncoding("UTF-8");
         resp.setHeader("Cache-Control", "no-cache, must-revalidate");
 
         ResultEnum resultEnu = null;

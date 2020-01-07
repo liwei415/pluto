@@ -2,10 +2,10 @@ package xyz.inux.pluto.common.lang;
 
 public class WdRuntimeException extends RuntimeException {
 	private static final long serialVersionUID = 7897423872713679608L;
+
+	private int errorCode;
 	
-	private int		errorCode;
-	
-	private String	desc;
+	private String desc;
 
     public WdRuntimeException(int errorCode) {
         this.errorCode = errorCode;

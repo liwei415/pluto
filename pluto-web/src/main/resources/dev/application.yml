@@ -30,6 +30,11 @@ spring:
   datasource:
     # 使用c3p0数据库连接池
     type: com.mchange.v2.c3p0.ComboPooledDataSource
+  kafka:
+    bootstrap-servers: 127.0.0.1:9092
+    consumer:
+      group-id: CID_dev_message
+#      auto-offset-reset: earliest
 
 server: 
   port: ${SERVER_PORT:10008}
